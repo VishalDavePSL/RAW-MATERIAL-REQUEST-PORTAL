@@ -4,25 +4,37 @@
   <meta charset="UTF-8">
   <title>Pratibha App</title>
 </head>
-<body>
 
-  <h2>Loading...</h2>
+<body>
+  <h3 id="status">Loading...</h3>
+  <div id="app"></div>
 
   <script>
-    const appScriptUrl =
+    const scriptURL =
       "https://script.google.com/macros/s/AKfycbwQy4panfi541NVON4b8JR8LfocjIKFSPzgaTCa2B3BDhFWUUgInNYPpjWhNktyJVAV/exec";
 
-    fetch(appScriptUrl)
-      .then(response => response.text())
-      .then(data => {
-        console.log(data);
-        document.body.innerHTML = data;
-      })
-      .catch(error => {
-        console.error(error);
-        document.body.innerHTML = "Unable to load application.";
-      });
-  </script>
+    fetch(scriptURL, {
+      method: "GET",
+      redirect: "follow"
+    })
+    .then(response => {
+      console.log("Status:", response.status);
 
+      if (!response.ok) {
+        throw new Error("HTTP error " + response.status);
+      }
+
+      return response.text();
+    })
+    .then(html => {
+      document.getElementById("status").style.display = "none";
+      document.getElementById("app").innerHTML = html;
+    })
+    .catch(error => {
+      console.error("ERROR:", error);
+      document.getElementById("status").innerHTML =
+        "Unable to load application: " + error.message;
+    });
+  </script>
 </body>
 </html>
