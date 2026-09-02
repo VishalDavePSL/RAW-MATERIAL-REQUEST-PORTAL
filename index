@@ -1,40 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pratibha App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>RAW-MATERIAL-REQUEST-PORTAL</title>
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #ffffff;
+    }
+
+    #appFrame {
+      width: 100%;
+      height: 100vh;
+      border: none;
+      display: block;
+    }
+  </style>
 </head>
 
 <body>
-  <h3 id="status">Loading...</h3>
-  <div id="app"></div>
 
-  <script>
-    const scriptURL =
-      "https://script.google.com/macros/s/AKfycbwQy4panfi541NVON4b8JR8LfocjIKFSPzgaTCa2B3BDhFWUUgInNYPpjWhNktyJVAV/exec";
+  <iframe
+    id="appFrame"
+    src="https://script.google.com/macros/s/AKfycbwQy4panfi541NVON4b8JR8LfocjIKFSPzgaTCa2B3BDhFWUUgInNYPpjWhNktyJVAV/exec"
+    allow="clipboard-read; clipboard-write"
+  ></iframe>
 
-    fetch(scriptURL, {
-      method: "GET",
-      redirect: "follow"
-    })
-    .then(response => {
-      console.log("Status:", response.status);
-
-      if (!response.ok) {
-        throw new Error("HTTP error " + response.status);
-      }
-
-      return response.text();
-    })
-    .then(html => {
-      document.getElementById("status").style.display = "none";
-      document.getElementById("app").innerHTML = html;
-    })
-    .catch(error => {
-      console.error("ERROR:", error);
-      document.getElementById("status").innerHTML =
-        "Unable to load application: " + error.message;
-    });
-  </script>
 </body>
 </html>
