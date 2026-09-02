@@ -1,20 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RAW-MATERIAL-REQUEST-PORTAL</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>RAW MATERIAL REQUEST PORTAL</title>
 
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
+    html,
+    body {
       width: 100%;
       height: 100%;
+      margin: 0;
+      padding: 0;
       overflow: hidden;
+      background: #ffffff;
     }
 
-    iframe {
+    #portal {
+      display: block;
       width: 100%;
       height: 100vh;
       border: 0;
@@ -25,7 +32,8 @@
 <body>
 
   <iframe
-    src="https://script.google.com/macros/s/AKfycbwQy4panfi541NVON4b8JR8LfocjIKFSPzgaTCa2B3BDhFWUUgInNYPpjWhNktyJVAV/exec"
+    id="portal"
+    src="https://script.google.com/macros/s/AKfycbx8I4o_GbynvLIw0WNkH430y9u0j0IkUA9kKJrWkdr8C2auho_BaS6cOxlVEakdOa41/exec"
     allow="clipboard-read; clipboard-write"
   ></iframe>
 
