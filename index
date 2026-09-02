@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Pratibha App</title>
+</head>
+<body>
+
+  <h2>Loading...</h2>
+
+  <script>
+    const appScriptUrl =
+      "https://script.google.com/macros/s/AKfycbwQy4panfi541NVON4b8JR8LfocjIKFSPzgaTCa2B3BDhFWUUgInNYPpjWhNktyJVAV/exec";
+
+    fetch(appScriptUrl)
+      .then(response => response.text())
+      .then(data => {
+        console.log(data);
+        document.body.innerHTML = data;
+      })
+      .catch(error => {
+        console.error(error);
+        document.body.innerHTML = "Unable to load application.";
+      });
+  </script>
+
+</body>
+</html>
